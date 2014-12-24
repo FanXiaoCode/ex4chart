@@ -11,6 +11,8 @@ var users = require('./routes/users');
 
 var mongodb = require('./routes/mongodb');
 var northwindagg = require('./routes/northwindagg');
+var redisPrac = require('./routes/redisPrac');
+
 //var monServer = require('mongodb').Server;
 //var Db = require('mongodb').Db;
 //var nwdb = new Db('Northwind', new monServer('localhost', 27017),{safe:false});
@@ -48,6 +50,8 @@ app.use('/groupStackedBarChart', routes.groupStackedBarChart);
 app.use('/nw01', northwindagg.nw01(nwdb));
 app.use('/nw01detail', northwindagg.nw01detail(nwdb));
 app.use('/nw02', northwindagg.nw02(nwdb));
+app.use('/redisCRUD', redisPrac.crud());
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
